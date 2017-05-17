@@ -15,10 +15,6 @@ public class GameHandler : MonoBehaviour
 		SceneManager.LoadScene (scene);
 	}
 
-	void OnMouseDown() {
-		Debug.Log ("Test");
-	}
-
 	// Use this for initialization
 	void Start () {
 

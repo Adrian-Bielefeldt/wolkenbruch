@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIHandler : MonoBehaviour {
 	public GameHandler GH;
 	public SoundHandler SH;
+	public GameObject pause_menu;
 
 	private bool mute;
 
