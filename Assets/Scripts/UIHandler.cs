@@ -12,10 +12,11 @@ public class UIHandler : MonoBehaviour {
 	private float volume;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 	}
 
-		// Update is called once per frame
+	// Update is called once per frame
 	void Update () {
 		ScanForKeyStroke();
 	}
@@ -27,14 +28,14 @@ public class UIHandler : MonoBehaviour {
 	public void TogglePauseMenu()
 	{
 		// not the optimal way but for the sake of readability
-		if (GetComponentInChildren<Canvas>().enabled)
+		if (pause_menu.activeSelf)
 		{
-			GetComponentInChildren<Canvas>().enabled = false;
+			pause_menu.SetActive (false);
 			Time.timeScale = 1.0f;
 		}
 		else
 		{
-			GetComponentInChildren<Canvas>().enabled = true;
+			pause_menu.SetActive (true);
 			Time.timeScale = 0f;
 		}
 
