@@ -14,6 +14,7 @@ public class UIHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		pause_menu.SetActive (false);
 	}
 
 	// Update is called once per frame
