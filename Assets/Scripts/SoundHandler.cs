@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class SoundHandler : MonoBehaviour {
 
-	public void SetVolume(float val) {
-		GetComponent<AudioSource>().volume = val;
+	public Audio_General audioGeneral;
+
+	public void SetGeneralVolume(float val) {
+		audioGeneral.setVolume (val);
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void SetMusicVolume(float val) {
+		Debug.Log ("Setting music volume to: " + val);
 	}
 }

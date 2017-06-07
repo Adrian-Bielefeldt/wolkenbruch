@@ -6,16 +6,16 @@ public class UIHandler : MonoBehaviour {
 	public GameHandler GH;
 	public SoundHandler SH;
 	public GameObject pause_menu;
+	public GameObject generalVolumeButton;
+	public GameObject musicVolumeButton;
+
+	private string mutedString = "Laut schalten";
+	private string unmutedString = "Stummschalten";
 
 	private bool mute;
+	private bool musicMute;
 
 	private float volume;
-
-	// Use this for initialization
-	void Start ()
-	{
-		pause_menu.SetActive (false);
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -39,26 +39,37 @@ public class UIHandler : MonoBehaviour {
 			pause_menu.SetActive (true);
 			Time.timeScale = 0f;
 		}
-
-		Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
 	}
 
-	//-----------------------------------------------------------
-	// Music Settings Function Definitions
-	public void MusicSliderUpdate(float val) {
+	public void MainSliderUpdate(float val) {
+		Debug.Log ("Volume now: " + val);
 		volume = val;
 		if (!mute) {
-			SH.SetVolume(val);
+			SH.SetGeneralVolume(val);
 		}
 	}
 
 	public void ToggleSound() {
 		if (mute) {
 			mute = false;
-			SH.SetVolume (volume);
+			generalVolumeButton.GetComponentInChildren<Text> ().text = unmutedString;
+			SH.SetGeneralVolume (volume);
 		} else {
 			mute = true;
-			SH.SetVolume (0f);
+			generalVolumeButton.GetComponentInChildren<Text> ().text = mutedString;
+			SH.SetGeneralVolume (0f);
+		}
+	}
+
+	public void ToggleMusic() {
+		if (musicMute) {
+			musicMute = false;
+			musicVolumeButton.GetComponentInChildren<Text> ().text = unmutedString;
+			SH.SetMusicVolume (volume);
+		} else {
+			musicMute = true;
+			musicVolumeButton.GetComponentInChildren<Text> ().text = mutedString;
+			SH.SetMusicVolume (0f);
 		}
 	}
 }
