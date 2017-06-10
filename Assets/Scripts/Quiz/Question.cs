@@ -6,6 +6,8 @@ public abstract class Question : ScriptableObject {
 
 	int points;
 
+	protected GameObject answersPanelUsed;
+
 	public Question(string questionToSet, int pointsToSet) {
 		question = questionToSet;
 		points = pointsToSet;
@@ -21,7 +23,7 @@ public abstract class Question : ScriptableObject {
 
 	public abstract void buildQuestion (GameObject answersPanel, Quiz_Handler quizHandler);
 
-	public abstract bool evaluate ();
+	public abstract int evaluate ();
 
 	public abstract void cleanUpQuestion ();
 }

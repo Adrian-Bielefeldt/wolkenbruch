@@ -10,8 +10,6 @@ public class Choice_Question : Question {
 	string rightAnswer;
 	string[] wrongAnswers;
 
-	GameObject answersPanelUsed;
-
 	public Choice_Question(string questionToSet, string rightAnswerToSet, string[] wrongAnswersToSet, int pointsToSet) : base (questionToSet, pointsToSet) {
 		/// <exception cref="ArgumentException">If the right answer is contained in the wrong answers.</exception>
 		if (wrongAnswersToSet.Contains (rightAnswerToSet)) {
@@ -34,18 +32,16 @@ public class Choice_Question : Question {
 
 		answersPanelUsed = answersPanel;
 
-		answersPanel.AddComponent<ToggleGroup> ();
-
-		List<string> posibilities = new List<string> ();
+		List<string> possibilities = new List<string> ();
 
 		foreach (string wrongAnswer in wrongAnswers) {
-			posibilities.Add (wrongAnswer);
+			possibilities.Add (wrongAnswer);
 		}
-		posibilities.Add (rightAnswer);
+		possibilities.Add (rightAnswer);
 
-		while (posibilities.Count > 0) {
-			string answer = posibilities [UnityEngine.Random.Range(0, posibilities.Count)];
-			posibilities.Remove (answer);
+		while (possibilities.Count > 0) {
+			string answer = possibilities [UnityEngine.Random.Range(0, possibilities.Count)];
+			possibilities.Remove (answer);
 			GameObject newAnswer = Instantiate (quizHandler.choiceTogglePrefab) as GameObject;
 			newAnswer.GetComponent<Toggle> ().group = answersPanel.GetComponent<ToggleGroup>();
 
@@ -55,7 +51,7 @@ public class Choice_Question : Question {
 		}
 	}
 
-	public override bool evaluate () {
+	public override int evaluate () {
 
 		bool correct = false;
 
@@ -72,7 +68,11 @@ public class Choice_Question : Question {
 			}
 		}
 
-		return correct;
+		if (correct) {
+			return getPoints ();
+		} else {
+			return 0;
+		}
 	}
 
 	void setToggleColor (Toggle toggle, String colorString) {
@@ -86,16 +86,14 @@ public class Choice_Question : Question {
 		}
 	}
 
-	public override void cleanUpQuestion () {
-		Destroy (answersPanelUsed.GetComponent<ToggleGroup> ());
-
-		getAnswerPanelElements().ForEach (child => Destroy (child));
-	}
-
 	List<GameObject> getAnswerPanelElements() {
 		List<GameObject> children = new List<GameObject>();
 		foreach (Transform child in answersPanelUsed.transform)
 			children.Add (child.gameObject);
 		return children;
-	}		
+	}
+
+	public override void cleanUpQuestion () {
+		getAnswerPanelElements().ForEach (child => Destroy (child));
+	}
 }

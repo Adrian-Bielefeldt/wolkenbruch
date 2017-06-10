@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Quiz_Handler : MonoBehaviour {
 
 	public GameObject choiceTogglePrefab;
+	public GameObject orderButtonPrefab;
 
 	public GameObject quizPanel;
 	public GameObject answersPanel;
@@ -68,9 +69,7 @@ public class Quiz_Handler : MonoBehaviour {
 	public void evaluateOrFurther() {
 		if (asking) {
 			furtherButton.GetComponentInChildren<Text> ().text = "Nächste Frage";
-			if (activeQuestion.evaluate ()) {
-				addToScore (activeQuestion.getPoints());
-			}
+			addToScore (activeQuestion.evaluate ());
 		} else {
 			int nextPosition = questions.IndexOf (activeQuestion) + 1;
 			if (nextPosition < questions.Count) {
