@@ -15,7 +15,7 @@ TagManager:
   - 
   - Pause_UI_Background
   - Pause_UI
-  - 
+  - InformationItems
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: PauseUI
     uniqueID: 4285042699
+    locked: 0
+  - name: InformationItems
+    uniqueID: 3446853807
     locked: 0
