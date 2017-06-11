@@ -12,7 +12,7 @@ public class Helper : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		HelpBubble.SetActive (false);
+		//HelpBubble.SetActive (true);
 	}
 
 	public void test() {
