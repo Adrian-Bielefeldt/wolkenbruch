@@ -30,8 +30,8 @@ public class Minigame : MonoBehaviour {
     private void Start()
     {
         Text text = message.GetComponent<Text>();
-        StartCoroutine(LastCall());
         helpBubble.SetActive(true);
+        StartCoroutine(LastCall());
         helper.transform.localScale = new Vector2(4, 4);
         helper.transform.localPosition = new Vector2(0, -200);
         helpBubble.transform.localPosition = new Vector2(-200, -200);
@@ -40,34 +40,27 @@ public class Minigame : MonoBehaviour {
         StopCoroutine(LastCall());
     }
     public void StartingKonfiguration()
-    { 
+    {
+        minigame.SetActive(true);
         panelInformation.SetActive(false);
         backgroundInformation.SetActive(false);
         informationItems.SetActive(false);
         toMinigame.SetActive(false);
-        minigame.SetActive(true);
         erdeLoesung.SetActive(false);
         humusLoesung.SetActive(false);
         kiesLoesung.SetActive(false);
         sandLoesung.SetActive(false);
         healthycharakter.SetActive(false);
         helpBubble.SetActive(false);
-
     }
 
     public void showAnswer(Button button)
     {
-        Text text = message.GetComponent<Text>();
-
         if (button.name == "erde")
         {
             if(erde == true)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Diese Schicht wurde bereits ausgewählt";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Diese Schicht wurde bereits ausgewählt");
             }
             else
             {
@@ -79,29 +72,17 @@ public class Minigame : MonoBehaviour {
         }
         else if(button.name == "felsen")
         {
-            StartCoroutine(LastCall());
-            helpBubble.SetActive(true);
-            text.text = "Es sieht nicht so aus das deine Figuren hier durch können";
-            LastCall();
-            StopCoroutine(LastCall());
+            showAndHideBubbleWithText("Es sieht nicht so aus das deine Figuren hier durch können");
         }
         else if(button.name == "humus")
         {
             if (humus == true)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Diese Schicht wurde bereits ausgewählt";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Diese Schicht wurde bereits ausgewählt");
             }
             else if(erde == false)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Anscheinend erscheint vorher eine andere Schicht";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
             {
@@ -115,19 +96,11 @@ public class Minigame : MonoBehaviour {
         {
             if (kies == true)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Diese Schicht wurde bereits ausgewählt";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Diese Schicht wurde bereits ausgewählt");
             }
             else if (humus == false)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Anscheinend erscheint vorher eine andere Schicht";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
             {
@@ -141,19 +114,11 @@ public class Minigame : MonoBehaviour {
         {
             if (sand == true)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Diese Schicht wurde bereits ausgewählt";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Diese Schicht wurde bereits ausgewählt");
             }
             else if (kies == false)
             {
-                StartCoroutine(LastCall());
-                helpBubble.SetActive(true);
-                text.text = "Anscheinend erscheint vorher eine andere Schicht";
-                LastCall();
-                StopCoroutine(LastCall());
+                showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
             {
@@ -167,16 +132,22 @@ public class Minigame : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(LastCall());
-            helpBubble.SetActive(true);
-            text.text = "Es sieht nicht so aus das deine Figuren hier durch können";
-            LastCall();
-            StopCoroutine(LastCall());
+            showAndHideBubbleWithText("Es sieht nicht so aus das deine Figuren hier durch können");
         }
     }
+
+    void showAndHideBubbleWithText(string showedText)
+    {
+        Text text = message.GetComponent<Text>();
+        helpBubble.SetActive(true);
+        StartCoroutine(LastCall());
+        text.text = showedText;
+        LastCall();
+        StopCoroutine(LastCall());
+    }
+
     IEnumerator LastCall()
     {
-        Debug.Log("hi");
         yield return new WaitForSeconds(5);
         helper.transform.localPosition = new Vector2(280,0);
         helpBubble.transform.localPosition = new Vector2(114,0);

@@ -18,8 +18,6 @@ public class Quiz_Handler : MonoBehaviour {
 
 	public GameObject furtherButton;
 
-    public GameObject informationItems;
-    public GameObject plusIcons;
 	List<Question> questions;
 
 	int pointsAchieved = 0;
@@ -31,12 +29,8 @@ public class Quiz_Handler : MonoBehaviour {
 
 	public void toggleShow() {
 		if (quizPanel.activeSelf) {
-            plusIcons.SetActive(true);
-            informationItems.SetActive(true);
             quizPanel.SetActive (false);
 		} else {
-            plusIcons.SetActive(false);
-            informationItems.SetActive(false);
             quizPanel.SetActive (true);
 			if (questions.Count <= 0) {
 				questionText.GetComponent<Text> ().text = "ERROR: No question were given.";
