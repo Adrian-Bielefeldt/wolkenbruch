@@ -12,6 +12,10 @@ public class PanelInformation : MonoBehaviour {
     public GameObject minigame;
     public GameObject house;
     public GameObject backgroundMinigame;
+    public GameObject panelPauseMenu;
+    public GameObject plusIcons;
+    public GameObject informationItems;
+    public GameObject quiz;
 
     private int activateMinigameIfItsFive = 0;
 
@@ -21,7 +25,20 @@ public class PanelInformation : MonoBehaviour {
         toMinigame.SetActive(false);
         informationBox.SetActive(false);
     }
-	
+
+    void Update()
+    {
+        if (panelPauseMenu.activeSelf == true || quiz.activeSelf == true)
+        {
+            plusIcons.SetActive(false);
+            informationItems.SetActive(false);
+        }
+        else if(panelPauseMenu.activeSelf == false || quiz.activeSelf == false)
+        {
+            plusIcons.SetActive(true);
+            informationItems.SetActive(true);
+        }
+    }
     public void ShowInformation()
     {
         house.SetActive(false);

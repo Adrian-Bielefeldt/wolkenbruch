@@ -8,8 +8,6 @@ public class UIHandler : MonoBehaviour {
 	public GameObject pause_menu;
 	public GameObject generalVolumeButton;
 	public GameObject musicVolumeButton;
-    public GameObject informationItems;
-    public GameObject plusIcons;
 
 	private string mutedString = "Laut schalten";
 	private string unmutedString = "Stummschalten";
@@ -33,15 +31,11 @@ public class UIHandler : MonoBehaviour {
         // not the optimal way but for the sake of readability
         if (pause_menu.activeSelf)
 		{
-            plusIcons.SetActive(true);
-            informationItems.SetActive(true);
             pause_menu.SetActive (false);
 			Time.timeScale = 1.0f;
 		}
 		else
 		{
-            plusIcons.SetActive(false);
-            informationItems.SetActive(false);
             pause_menu.SetActive (true);
 			Time.timeScale = 0f;
 		}
