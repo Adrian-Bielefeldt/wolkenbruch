@@ -28,15 +28,15 @@ public class UIHandler : MonoBehaviour {
 
 	public void TogglePauseMenu()
 	{
-		// not the optimal way but for the sake of readability
-		if (pause_menu.activeSelf)
+        // not the optimal way but for the sake of readability
+        if (pause_menu.activeSelf)
 		{
-			pause_menu.SetActive (false);
+            pause_menu.SetActive (false);
 			Time.timeScale = 1.0f;
 		}
 		else
 		{
-			pause_menu.SetActive (true);
+            pause_menu.SetActive (true);
 			Time.timeScale = 0f;
 		}
 	}

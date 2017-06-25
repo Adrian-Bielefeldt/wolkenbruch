@@ -29,9 +29,9 @@ public class Quiz_Handler : MonoBehaviour {
 
 	public void toggleShow() {
 		if (quizPanel.activeSelf) {
-			quizPanel.SetActive (false);
+            quizPanel.SetActive (false);
 		} else {
-			quizPanel.SetActive (true);
+            quizPanel.SetActive (true);
 			if (questions.Count <= 0) {
 				questionText.GetComponent<Text> ().text = "ERROR: No question were given.";
 				Debug.LogError ("ERROR: No questions where given.");

@@ -8,28 +8,13 @@ public class Helper : MonoBehaviour {
 	public GameObject primaryPanel;
 	public GameObject HelpBubble;
 
-	int i = 0;
-
 	// Use this for initialization
 	void Start() {
-		HelpBubble.SetActive (false);
+		//HelpBubble.SetActive (true);
 	}
 
 	public void test() {
-		if (i == 0) {
-			help ("Testing the help bubble.");
-			i++;
-		} else if (i == 1) {
-			help ("Does the bubble grow and change as I want it to? Can I still read everything? Does this work?");
-			i++;
-		} else if (i == 2) {
-			help ("And back to a small bubble");
-			i++;
-		} else {
-			help ("The Number " + i);
-			i++;
-		}
-
+		help ("Dies ist ein Test des Helfers. Klicken sie auf die Sprechblase, um sie zu schließen.");
 	}
 
 	public void help (string help) {
