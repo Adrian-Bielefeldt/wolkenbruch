@@ -7,9 +7,12 @@ public class Quiz_Handler : MonoBehaviour {
 
 	public GameObject choiceTogglePrefab;
 	public GameObject orderButtonPrefab;
+	public GameObject slotPanelPrefab;
 
+	public Canvas canvas;
 	public GameObject quizPanel;
-	public GameObject answersPanel;
+	public GameObject answersPanelLeft;
+	public GameObject answersPanelRight;
 
 	public GameObject questionText;
 	public GameObject pointsText;
@@ -33,8 +36,8 @@ public class Quiz_Handler : MonoBehaviour {
 		} else {
             quizPanel.SetActive (true);
 			if (questions.Count <= 0) {
-				questionText.GetComponent<Text> ().text = "ERROR: No question were given.";
-				Debug.LogError ("ERROR: No questions where given.");
+				questionText.GetComponent<Text> ().text = "ERROR: No questions were given.";
+				Debug.LogError ("ERROR: No questions were given.");
 			} else {
 				setActiveQuestion (questions [0]);
 				addToScore (-pointsAchieved);
@@ -58,12 +61,18 @@ public class Quiz_Handler : MonoBehaviour {
 		pointsText.GetComponent<Text> ().text = "Wert dieser Frage: " + activeQuestion.getPoints ();
 		furtherButton.GetComponentInChildren<Text> ().text = "Antwort abgeben";
 
-		activeQuestion.buildQuestion (answersPanel, this);
+
+
+		activeQuestion.buildQuestion (answersPanelLeft, answersPanelRight, this);
 	}
 
 	void addToScore(int change) {
 		pointsAchieved += change;
 		scoreText.GetComponent<Text> ().text = "Punkte erreicht: " + pointsAchieved + " von " + pointsPossible;
+	}
+
+	public void setEvaluteButtonEnabled(bool enabled) {
+		furtherButton.GetComponent<Button>().interactable = enabled;
 	}
 
 	public void evaluateOrFurther() {

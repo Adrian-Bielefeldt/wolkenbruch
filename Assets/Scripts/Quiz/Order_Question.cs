@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Order_Question : Question {
+public class Order_Question : Question , INotifiableQuestion {
 
 	string[] correctOrder;
+	Quiz_Handler quizHandler;
 
 	public Order_Question (string questionToSet, string[] correctOrderToSet, int pointsToSet) : base (questionToSet, pointsToSet) {
 		correctOrder = correctOrderToSet;
@@ -15,9 +16,12 @@ public class Order_Question : Question {
 		return correctOrder;
 	}
 
-	public override void buildQuestion (GameObject answersPanel, Quiz_Handler quizHandler) {
+	public override void buildQuestion (GameObject answersPanelLeft, GameObject answersPanelRight, Quiz_Handler quizHandler_) {
 
-		answersPanelUsed = answersPanel;
+		answersPanelLeftUsed = answersPanelLeft;
+		answersPanelRightUsed = answersPanelRight;
+
+		quizHandler = quizHandler_;
 
 		List<string> possibilities = new List<string> ();
 
@@ -25,13 +29,35 @@ public class Order_Question : Question {
 			possibilities.Add (orderElement);
 		}
 
+		for (int i = 0; i < possibilities.Count; i++) {
+			GameObject newSlot = Instantiate (quizHandler.slotPanelPrefab) as GameObject;
+			newSlot.transform.SetParent (answersPanelRight.transform, false);
+		}
+
 		while (possibilities.Count > 0) {
 			string answer = possibilities [UnityEngine.Random.Range(0, possibilities.Count)];
 			possibilities.Remove (answer);
+			GameObject newSlot = Instantiate (quizHandler.slotPanelPrefab) as GameObject;
+			newSlot.transform.SetParent (answersPanelLeft.transform, false);
+
 			GameObject newAnswer = Instantiate (quizHandler.orderButtonPrefab) as GameObject;
 
+			newAnswer.GetComponent<DragHandler> ().canvas = quizHandler.canvas;
+			newAnswer.GetComponent<DragHandler> ().questionToNotifiy = this;
 			newAnswer.GetComponentInChildren<Text> ().text = answer;
-			newAnswer.transform.SetParent (answersPanel.transform, false);
+			newAnswer.transform.SetParent (newSlot.transform, false);
+
+			quizHandler.setEvaluteButtonEnabled (false);
+		}
+	}
+
+	public void answersChanged() {
+		foreach (GameObject answerSlot in getAnswersPanelRightElements()) {
+			if (answerSlot.GetComponent<DragSlot> ().item == null) {
+				quizHandler.setEvaluteButtonEnabled (false);
+				return;
+			}
+			quizHandler.setEvaluteButtonEnabled (true);
 		}
 	}
 
@@ -39,10 +65,12 @@ public class Order_Question : Question {
 
 		bool correct = true;
 
-		List<GameObject> answerPanelElements = getAnswerPanelElements ();
+		List<GameObject> answerPanelElements = getAnswersPanelRightElements ();
 
 		for (int i = 0; i < answerPanelElements.Count; i++) {
-			GameObject answer = answerPanelElements [i];
+			DragSlot answerSlot = answerPanelElements [i].GetComponent<DragSlot> ();
+			GameObject answer = answerSlot.item;
+			answer.GetComponent<DragHandler> ().enabled = false;
 			if (answer.GetComponentInChildren<Text> ().text == correctOrder [i]) {
 				setImageColor (answer.GetComponent<Image> (), "#8CE5B9FF");
 			} else {
@@ -50,6 +78,8 @@ public class Order_Question : Question {
 				correct = false;
 			}
 		}
+
+		getAnswersPanelLeftElements().ForEach (child => Destroy (child));
 
 		if (correct) {
 			return getPoints();
@@ -65,16 +95,5 @@ public class Order_Question : Question {
 		} else {
 			image.color = color;
 		}
-	}
-
-	List<GameObject> getAnswerPanelElements() {
-		List<GameObject> children = new List<GameObject>();
-		foreach (Transform child in answersPanelUsed.transform)
-			children.Add (child.gameObject);
-		return children;
-	}
-
-	public override void cleanUpQuestion () {
-		getAnswerPanelElements().ForEach (child => Destroy (child));
 	}
 }

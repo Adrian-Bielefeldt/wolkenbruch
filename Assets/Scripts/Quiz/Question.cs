@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+
+using UnityEngine;
 
 public abstract class Question : ScriptableObject {
 
@@ -6,7 +8,8 @@ public abstract class Question : ScriptableObject {
 
 	int points;
 
-	protected GameObject answersPanelUsed;
+	protected GameObject answersPanelLeftUsed;
+	protected GameObject answersPanelRightUsed;
 
 	public Question(string questionToSet, int pointsToSet) {
 		question = questionToSet;
@@ -21,9 +24,27 @@ public abstract class Question : ScriptableObject {
 		return points;
 	}
 
-	public abstract void buildQuestion (GameObject answersPanel, Quiz_Handler quizHandler);
+	public abstract void buildQuestion (GameObject answersPanelLeft, GameObject answersPanelRight, Quiz_Handler quizHandler);
 
 	public abstract int evaluate ();
 
-	public abstract void cleanUpQuestion ();
+
+	public List<GameObject> getAnswersPanelLeftElements() {
+		List<GameObject> children = new List<GameObject>();
+		foreach (Transform child in answersPanelLeftUsed.transform)
+			children.Add (child.gameObject);
+		return children;
+	}
+
+	public List<GameObject> getAnswersPanelRightElements() {
+		List<GameObject> children = new List<GameObject>();
+		foreach (Transform child in answersPanelRightUsed.transform)
+			children.Add (child.gameObject);
+		return children;
+	}
+
+	public void cleanUpQuestion () {
+		getAnswersPanelLeftElements().ForEach (child => Destroy (child));
+		getAnswersPanelRightElements().ForEach (child => Destroy (child));
+	}
 }

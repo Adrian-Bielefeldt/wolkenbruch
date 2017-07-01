@@ -390,6 +390,10 @@ MonoBehaviour:
   minigame: {fileID: 1791903660}
   house: {fileID: 1005826734}
   backgroundMinigame: {fileID: 1026266959}
+  panelPauseMenu: {fileID: 450252029}
+  plusIcons: {fileID: 2083925358}
+  informationItems: {fileID: 899712411}
+  quiz: {fileID: 145898078}
 --- !u!1 &118867036
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +468,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 118867036}
+--- !u!1 &145898078 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1674044757408980, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653190015}
 --- !u!1 &187103155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1248,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &450252029 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1704589424750348, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+    type: 2}
+  m_PrefabInternal: {fileID: 1653190015}
 --- !u!1 &464231094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,7 +4703,7 @@ Prefab:
     - target: {fileID: 224313396234074082, guid: 5576d5c71be5346a8a61ef49ad5a34df,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 205.025
+      value: 234.425
       objectReference: {fileID: 0}
     - target: {fileID: 224313396234074082, guid: 5576d5c71be5346a8a61ef49ad5a34df,
         type: 2}
@@ -4699,7 +4713,7 @@ Prefab:
     - target: {fileID: 224313396234074082, guid: 5576d5c71be5346a8a61ef49ad5a34df,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 340.05
+      value: 398.85
       objectReference: {fileID: 0}
     - target: {fileID: 224313396234074082, guid: 5576d5c71be5346a8a61ef49ad5a34df,
         type: 2}

@@ -28,9 +28,12 @@ public class Choice_Question : Question {
 		return wrongAnswers;
 	}
 
-	public override void buildQuestion (GameObject answersPanel, Quiz_Handler quizHandler) {
+	public override void buildQuestion (GameObject answersPanelLeft, GameObject answersPanelRight, Quiz_Handler quizHandler) {
 
-		answersPanelUsed = answersPanel;
+		quizHandler.furtherButton.GetComponent<Button>().interactable = false;
+
+		answersPanelLeftUsed = answersPanelLeft;
+		answersPanelRightUsed = answersPanelRight;
 
 		List<string> possibilities = new List<string> ();
 
@@ -39,11 +42,25 @@ public class Choice_Question : Question {
 		}
 		possibilities.Add (rightAnswer);
 
+		int startCountAnswers = possibilities.Count;
+
+		GameObject answersPanel = answersPanelLeft;
+
 		while (possibilities.Count > 0) {
+			if (possibilities.Count <= startCountAnswers / 2) {
+				answersPanel = answersPanelRight;
+			}
+
 			string answer = possibilities [UnityEngine.Random.Range(0, possibilities.Count)];
 			possibilities.Remove (answer);
 			GameObject newAnswer = Instantiate (quizHandler.choiceTogglePrefab) as GameObject;
-			newAnswer.GetComponent<Toggle> ().group = answersPanel.GetComponent<ToggleGroup>();
+			newAnswer.GetComponent<Toggle> ().group = answersPanelLeft.GetComponent<ToggleGroup>();
+			newAnswer.GetComponent<Toggle> ().onValueChanged.AddListener ((isSelected) => {
+				if (!isSelected) {
+					return;
+				}
+				quizHandler.setEvaluteButtonEnabled(true);
+			});
 
 			newAnswer.GetComponentInChildren<Text> ().text = answer;
 			newAnswer.transform.SetParent (answersPanel.transform, false);
@@ -55,7 +72,12 @@ public class Choice_Question : Question {
 
 		bool correct = false;
 
-		foreach (GameObject answer in getAnswerPanelElements()) {
+		List<GameObject> answers = getAnswersPanelLeftElements ();
+		foreach (GameObject answer in getAnswersPanelRightElements()) {
+			answers.Add (answer);
+		}
+
+		foreach (GameObject answer in answers) {
 			Toggle toggle = answer.GetComponent<Toggle> ();
 			toggle.enabled = false;
 			if (toggle.isOn) {
@@ -84,16 +106,5 @@ public class Choice_Question : Question {
 			colorBlock.normalColor = color;
 			toggle.colors = colorBlock;
 		}
-	}
-
-	List<GameObject> getAnswerPanelElements() {
-		List<GameObject> children = new List<GameObject>();
-		foreach (Transform child in answersPanelUsed.transform)
-			children.Add (child.gameObject);
-		return children;
-	}
-
-	public override void cleanUpQuestion () {
-		getAnswerPanelElements().ForEach (child => Destroy (child));
 	}
 }

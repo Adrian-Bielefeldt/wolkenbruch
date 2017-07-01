@@ -17,6 +17,8 @@ public class UIHandler : MonoBehaviour {
 
 	private float volume;
 
+	public string[] strings;
+
 	// Update is called once per frame
 	void Update () {
 		ScanForKeyStroke();
@@ -71,5 +73,9 @@ public class UIHandler : MonoBehaviour {
 			musicVolumeButton.GetComponentInChildren<Text> ().text = mutedString;
 			SH.SetMusicVolume (0f);
 		}
+	}
+
+	public void DisplayInformation(string[] pages) {
+
 	}
 }

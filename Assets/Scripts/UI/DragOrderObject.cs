@@ -14,7 +14,6 @@ public class DragOrderObject : MonoBehaviour {
 	}
 
 	public void OnBeginDrag(BaseEventData eventData) {
-		Debug.Log ("Beginning drag on: " + this.GetComponentInChildren<Text>().text);
 		container.setObjectBeingDragged (this.gameObject);
 	}
 
