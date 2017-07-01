@@ -11,6 +11,9 @@ public class UIHandler : MonoBehaviour {
 	public Button musicVolumeButton;
 	public InformationPanel informationPanel;
 
+	public Button minigameButton;
+	public Button quizButton;
+
 	private string mutedString = "Laut schalten";
 	private string unmutedString = "Stummschalten";
 
@@ -77,5 +80,13 @@ public class UIHandler : MonoBehaviour {
 
 	public void DisplayInformation(string title, List<string> pages) {
 		informationPanel.setPages (title, pages);
+	}
+
+	public void displayMinigameButton(bool state) {
+		minigameButton.gameObject.SetActive (state);
+	}
+
+	public void displayQuizButton(bool state) {
+		quizButton.gameObject.SetActive (state);
 	}
 }
