@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,9 @@ public class UIHandler : MonoBehaviour {
 	public GameHandler GH;
 	public SoundHandler SH;
 	public GameObject pause_menu;
-	public GameObject generalVolumeButton;
-	public GameObject musicVolumeButton;
+	public Button generalVolumeButton;
+	public Button musicVolumeButton;
+	public InformationPanel informationPanel;
 
 	private string mutedString = "Laut schalten";
 	private string unmutedString = "Stummschalten";
@@ -17,7 +19,9 @@ public class UIHandler : MonoBehaviour {
 
 	private float volume;
 
-	public string[] strings;
+	void Start () {
+		DisplayInformation ("Title", new List<string> () { "Page1", "Page2" });
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -75,7 +79,7 @@ public class UIHandler : MonoBehaviour {
 		}
 	}
 
-	public void DisplayInformation(string[] pages) {
-
+	public void DisplayInformation(string title, List<string> pages) {
+		informationPanel.setPages (title, pages);
 	}
 }
