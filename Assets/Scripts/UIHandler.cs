@@ -19,10 +19,6 @@ public class UIHandler : MonoBehaviour {
 
 	private float volume;
 
-	void Start () {
-		DisplayInformation ("Title", new List<string> () { "Page1", "Page2" });
-	}
-
 	// Update is called once per frame
 	void Update () {
 		ScanForKeyStroke();
