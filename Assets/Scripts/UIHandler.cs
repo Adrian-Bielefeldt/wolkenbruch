@@ -10,6 +10,7 @@ public class UIHandler : MonoBehaviour {
 	public Button generalVolumeButton;
 	public Button musicVolumeButton;
 	public InformationPanel informationPanel;
+	public Helper helper;
 
 	public Button minigameButton;
 	public Button quizButton;
@@ -21,6 +22,10 @@ public class UIHandler : MonoBehaviour {
 	private bool musicMute;
 
 	private float volume;
+
+	void Start () {
+		helper.currentHelp = "Sieh dich in der Szene um. Kannst du noch etwas finden, auf das du noch nicht geklickt hast?";
+	}
 
 	// Update is called once per frame
 	void Update () {
