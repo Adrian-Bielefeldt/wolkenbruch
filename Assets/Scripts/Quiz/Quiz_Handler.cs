@@ -8,6 +8,7 @@ public class Quiz_Handler : MonoBehaviour {
 	public GameObject choiceTogglePrefab;
 	public GameObject orderButtonPrefab;
 	public GameObject slotPanelPrefab;
+	public GameObject circlePrefab;
 
 	public Canvas canvas;
 	public GameObject quizPanel;

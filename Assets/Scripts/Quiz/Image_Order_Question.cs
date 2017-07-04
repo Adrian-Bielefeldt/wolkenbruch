@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Order_Question : Question , INotifiableQuestion {
+public class Image_Order_Question : Question , INotifiableQuestion {
 
 	string[] correctOrder;
 	Quiz_Handler quizHandler;
 
-	public Order_Question (string questionToSet, string[] correctOrderToSet, int pointsToSet) : base (questionToSet, pointsToSet) {
+	public Image_Order_Question (string questionToSet, string[] correctOrderToSet, int pointsToSet) : base (questionToSet, pointsToSet) {
 		correctOrder = correctOrderToSet;
-	}
-
-	public string[] getCorrectOrder() {
-		return correctOrder;
 	}
 
 	public override void buildQuestion (GameObject answersPanelLeft, GameObject answersPanelRight, Quiz_Handler quizHandler_) {
@@ -29,10 +25,8 @@ public class Order_Question : Question , INotifiableQuestion {
 			possibilities.Add (orderElement);
 		}
 
-		for (int i = 0; i < possibilities.Count; i++) {
-			GameObject newSlot = Instantiate (quizHandler.slotPanelPrefab) as GameObject;
-			newSlot.transform.SetParent (answersPanelRight.transform, false);
-		}
+		GameObject circle = Instantiate (quizHandler.circlePrefab) as GameObject;
+		circle.transform.SetParent (answersPanelRight.transform, false);
 
 		while (possibilities.Count > 0) {
 			string answer = possibilities [UnityEngine.Random.Range(0, possibilities.Count)];
@@ -47,28 +41,27 @@ public class Order_Question : Question , INotifiableQuestion {
 			newAnswer.GetComponentInChildren<Text> ().text = answer;
 			newAnswer.transform.SetParent (newSlot.transform, false);
 		}
-
-		quizHandler.setEvaluteButtonEnabled (false);
 	}
 
 	public void answersChanged() {
-		foreach (GameObject answerSlot in getAnswersPanelRightElements()) {
-			if (answerSlot.GetComponent<DragSlot> ().item == null) {
+		Transform circle = answersPanelRightUsed.transform.GetChild (0);
+
+		foreach (Transform child in circle.transform) {
+			if (child.gameObject.GetComponent<DragSlot> ().item == null) {
 				quizHandler.setEvaluteButtonEnabled (false);
 				return;
 			}
 		}
-		quizHandler.setEvaluteButtonEnabled (true);
+		quizHandler.setEvaluteButtonEnabled(true);
 	}
 
 	public override int evaluate () {
 
 		bool correct = true;
 
-		List<GameObject> answerPanelElements = getAnswersPanelRightElements ();
-
-		for (int i = 0; i < answerPanelElements.Count; i++) {
-			DragSlot answerSlot = answerPanelElements [i].GetComponent<DragSlot> ();
+		int i = 0;
+		foreach (Transform child in answersPanelRightUsed.transform.GetChild(0)) {
+			DragSlot answerSlot = child.gameObject.GetComponent<DragSlot> ();
 			GameObject answer = answerSlot.item;
 			answer.GetComponent<DragHandler> ().enabled = false;
 			if (answer.GetComponentInChildren<Text> ().text == correctOrder [i]) {
@@ -77,6 +70,7 @@ public class Order_Question : Question , INotifiableQuestion {
 				setImageColor (answer.GetComponent<Image> (), "#EA4758FF");
 				correct = false;
 			}
+			i++;
 		}
 
 		getAnswersPanelLeftElements().ForEach (child => Destroy (child));
