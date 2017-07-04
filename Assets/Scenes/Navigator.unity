@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 293403213}
   - component: {fileID: 293403214}
   - component: {fileID: 293403215}
+  - component: {fileID: 293403216}
   m_Layer: 0
   m_Name: Grundwasser
   m_TagString: Untagged
@@ -736,7 +737,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 973668680}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &293403213
 SpriteRenderer:
@@ -751,7 +752,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9691b25131740405fb9d5a610c4d2914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -891,6 +892,19 @@ MonoBehaviour:
   GH: {fileID: 1880468232}
   hoverSprite: {fileID: 21300000, guid: 65d3d8597e7897e418b3a75127beeeb4, type: 3}
   chapter: Chapter01
+--- !u!114 &293403216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293403211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b1a5fe2513e4ed1997fe9252450184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.9191176, g: 0.7242013, b: 0.08785681, a: 1}
+  outlineSize: 4
 --- !u!1 &305219709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,10 +1965,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 293403212}
   - {fileID: 1990228201}
   - {fileID: 1470274899}
   - {fileID: 1541129374}
+  - {fileID: 293403212}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2346,8 +2360,9 @@ MonoBehaviour:
   GH: {fileID: 1880468232}
   SH: {fileID: 834352076}
   pause_menu: {fileID: 1691725010}
-  generalVolumeButton: {fileID: 3215888}
-  musicVolumeButton: {fileID: 1715088704}
+  generalVolumeButton: {fileID: 0}
+  musicVolumeButton: {fileID: 0}
+  informationPanel: {fileID: 0}
 --- !u!1 &1384972569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2448,7 @@ GameObject:
   - component: {fileID: 1470274902}
   - component: {fileID: 1470274901}
   - component: {fileID: 1470274900}
+  - component: {fileID: 1470274903}
   m_Layer: 0
   m_Name: See
   m_TagString: Untagged
@@ -2451,7 +2467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 973668680}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1470274900
 MonoBehaviour:
@@ -2570,7 +2586,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9691b25131740405fb9d5a610c4d2914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2597,6 +2613,19 @@ SpriteRenderer:
   m_Size: {x: 5.32, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &1470274903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1470274898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b1a5fe2513e4ed1997fe9252450184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.9191176, g: 0.7242013, b: 0.08785681, a: 1}
+  outlineSize: 4
 --- !u!1 &1512187353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2836,7 @@ GameObject:
   - component: {fileID: 1541129376}
   - component: {fileID: 1541129375}
   - component: {fileID: 1541129378}
+  - component: {fileID: 1541129379}
   m_Layer: 0
   m_Name: Wolken
   m_TagString: Untagged
@@ -2825,7 +2855,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 973668680}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2985,7 +3015,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9691b25131740405fb9d5a610c4d2914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3018,6 +3048,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1541129373}
+--- !u!114 &1541129379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541129373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b1a5fe2513e4ed1997fe9252450184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.9191176, g: 0.7242013, b: 0.08785681, a: 1}
+  outlineSize: 4
 --- !u!1 &1583249153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4264,6 +4307,7 @@ GameObject:
   - component: {fileID: 1990228202}
   - component: {fileID: 1990228203}
   - component: {fileID: 1990228204}
+  - component: {fileID: 1990228205}
   m_Layer: 0
   m_Name: Fluss
   m_TagString: Untagged
@@ -4282,7 +4326,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 973668680}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1990228202
 SpriteRenderer:
@@ -4297,7 +4341,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9691b25131740405fb9d5a610c4d2914, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4489,6 +4533,19 @@ PolygonCollider2D:
       - {x: 3.49, y: -1.2099999}
       - {x: 3.51, y: -1.12}
       - {x: 3.52, y: -1.01}
+--- !u!114 &1990228205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1990228200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b1a5fe2513e4ed1997fe9252450184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.9191176, g: 0.7242013, b: 0.08785681, a: 1}
+  outlineSize: 4
 --- !u!1 &2023243555
 GameObject:
   m_ObjectHideFlags: 0

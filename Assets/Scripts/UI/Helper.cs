@@ -8,13 +8,15 @@ public class Helper : MonoBehaviour {
 	public GameObject primaryPanel;
 	public GameObject HelpBubble;
 
+	public string currentHelp;
+
 	// Use this for initialization
 	void Start() {
 		//HelpBubble.SetActive (true);
 	}
 
 	public void test() {
-		help ("Dies ist ein Test des Helfers. Klicken sie auf die Sprechblase, um sie zu schließen.");
+		help (currentHelp);
 	}
 
 	public void help (string help) {

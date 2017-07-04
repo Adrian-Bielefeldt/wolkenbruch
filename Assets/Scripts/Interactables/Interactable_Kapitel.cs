@@ -6,10 +6,6 @@ public class Interactable_Kapitel : MonoBehaviour {
 
 	public GameHandler GH;
 
-	public Sprite hoverSprite;
-
-	Sprite normalSprite;
-
 	public string chapter;
 
 	void OnMouseDown () {
@@ -17,12 +13,10 @@ public class Interactable_Kapitel : MonoBehaviour {
 	}
 
 	void OnMouseEnter () {
-		normalSprite = GetComponent<SpriteRenderer> ().sprite;
-		GetComponent<SpriteRenderer> ().sprite = hoverSprite;
-		transform.SetAsLastSibling ();
+		GetComponent<SpriteOutline> ().UpdateOutline (true);
 	}
 
 	void OnMouseExit () {
-		GetComponent<SpriteRenderer> ().sprite = normalSprite;
+		GetComponent<SpriteOutline> ().UpdateOutline (false);
 	}
 }

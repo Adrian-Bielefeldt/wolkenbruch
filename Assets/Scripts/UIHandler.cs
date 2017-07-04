@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,13 @@ public class UIHandler : MonoBehaviour {
 	public GameHandler GH;
 	public SoundHandler SH;
 	public GameObject pause_menu;
-	public GameObject generalVolumeButton;
-	public GameObject musicVolumeButton;
+	public Button generalVolumeButton;
+	public Button musicVolumeButton;
+	public InformationPanel informationPanel;
+	public Helper helper;
+
+	public Button minigameButton;
+	public Button quizButton;
 
 	private string mutedString = "Laut schalten";
 	private string unmutedString = "Stummschalten";
@@ -17,7 +23,9 @@ public class UIHandler : MonoBehaviour {
 
 	private float volume;
 
-	public string[] strings;
+	void Start () {
+		helper.currentHelp = "Sieh dich in der Szene um. Kannst du noch etwas finden, auf das du noch nicht geklickt hast?";
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -75,7 +83,15 @@ public class UIHandler : MonoBehaviour {
 		}
 	}
 
-	public void DisplayInformation(string[] pages) {
+	public void DisplayInformation(string title, List<string> pages) {
+		informationPanel.setPages (title, pages);
+	}
 
+	public void displayMinigameButton(bool state) {
+		minigameButton.gameObject.SetActive (state);
+	}
+
+	public void displayQuizButton(bool state) {
+		quizButton.gameObject.SetActive (state);
 	}
 }
