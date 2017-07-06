@@ -63,7 +63,7 @@ public class Order_Question : Question , INotifiableQuestion {
 
 	public override int evaluate () {
 
-		bool correct = true;
+		int correct = 0;
 
 		List<GameObject> answerPanelElements = getAnswersPanelRightElements ();
 
@@ -73,19 +73,21 @@ public class Order_Question : Question , INotifiableQuestion {
 			answer.GetComponent<DragHandler> ().enabled = false;
 			if (answer.GetComponentInChildren<Text> ().text == correctOrder [i]) {
 				setImageColor (answer.GetComponent<Image> (), "#8CE5B9FF");
+				correct++;
 			} else {
 				setImageColor (answer.GetComponent<Image> (), "#EA4758FF");
-				correct = false;
 			}
 		}
 
 		getAnswersPanelLeftElements().ForEach (child => Destroy (child));
 
-		if (correct) {
-			return getPoints();
-		} else {
-			return 0;
+		if (correct == correctOrder.Length) {
+			return getPoints ();
 		}
+		if (correct > 0) {
+			return (int) getPoints () / 2;
+		}
+		return 0;
 	}
 
 	void setImageColor (Image image, string colorString) {

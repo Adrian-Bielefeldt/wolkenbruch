@@ -27,7 +27,8 @@ public class Questions_Chapter03 : MonoBehaviour {
 				new Choice_Question (frageVerdunstung, "die Temperatur hoch ist.", new string[]{"die Temperatur niedrig ist."}, 1),
 				new Choice_Question (frageVerdunstung, "die Sonne scheint.", new string[]{"es bewölkt ist."}, 1),
 				new Choice_Question (frageVerdunstung, "die Luftfeuchtigkeit niedrig ist.", new string[]{"die Luftfeuchtigkeit hoch ist."}, 1),
-				new Choice_Question (frageVerdunstung, "die Windgeschwindigkeit hoch ist.", new string[]{"die Windgeschwindigkeit niedrig ist."}, 1)
+				new Choice_Question (frageVerdunstung, "die Windgeschwindigkeit hoch ist.", new string[]{"die Windgeschwindigkeit niedrig ist."}, 1),
+				new Image_Order_Question("Ordne die Wörter der Grafik zu.", new string[]{"Schmelzen", "Gefrieren", "Verdampfen", "Kondensieren", "Sublimieren", "Resublimieren"}, 6)
 			}); 
 	}
 }

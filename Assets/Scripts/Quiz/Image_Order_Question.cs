@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,7 +58,7 @@ public class Image_Order_Question : Question , INotifiableQuestion {
 
 	public override int evaluate () {
 
-		bool correct = true;
+		int correct = 0;
 
 		int i = 0;
 		foreach (Transform child in answersPanelRightUsed.transform.GetChild(0)) {
@@ -66,20 +67,16 @@ public class Image_Order_Question : Question , INotifiableQuestion {
 			answer.GetComponent<DragHandler> ().enabled = false;
 			if (answer.GetComponentInChildren<Text> ().text == correctOrder [i]) {
 				setImageColor (answer.GetComponent<Image> (), "#8CE5B9FF");
+				correct++;
 			} else {
 				setImageColor (answer.GetComponent<Image> (), "#EA4758FF");
-				correct = false;
 			}
 			i++;
 		}
 
 		getAnswersPanelLeftElements().ForEach (child => Destroy (child));
 
-		if (correct) {
-			return getPoints();
-		} else {
-			return 0;
-		}
+		return (int)Math.Floor ((double) getPoints () * correct / correctOrder.Length);
 	}
 
 	void setImageColor (Image image, string colorString) {
