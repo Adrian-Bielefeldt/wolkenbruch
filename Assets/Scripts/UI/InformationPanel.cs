@@ -24,6 +24,8 @@ public class InformationPanel : MonoBehaviour {
 			pages_[0] = "No text was supplied.";
 		}
 
+		currentPage = 0;
+
 		pages = pages_;
 
 		header.text = titel_;

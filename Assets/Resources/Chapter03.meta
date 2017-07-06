@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 25e8276e80c04457d89da9111eb02cb3
 folderAsset: yes
 timeCreated: 1499342895
+=======
+guid: c524dc85d8d31c44ca5e2203fa33c758
+folderAsset: yes
+timeCreated: 1498937703
+>>>>>>> FelixScenes
 licenseType: Free
 DefaultImporter:
   userData: 
