@@ -9,19 +9,7 @@ public class GameHandler : MonoBehaviour
 	// handles
 	public UIHandler UH;
 
-	//-----------------------------------------
-	// function definitions
-	public void chapter(string scene) {
+	public void chapter(int scene) {
 		SceneManager.LoadScene (scene);
-	}
-
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
 	}
 }

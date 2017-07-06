@@ -10,8 +10,7 @@ public class Questions_Chapter02 : MonoBehaviour {
 	void Start () {
 		string wahr = "Wahr";
 		string falsch = "Falsch";
-		quizHandler.setQuestions (
-			new List<Question> () {
+		List<Question> questions = new List<Question> () {
 				new Choice_Question ("Was bedeutet Kondensation?", "Der Übergang eines Stoffen vom gasförmigen in den flüssigen Aggregatzustand.", new string[] {
 					"Der Übergang eines Stoffes vom festen in den gasförmigen Aggregatzustand.",
 					"Der Übergang einer Flüssigkeit in den gasförmigen Aggregatzustand.",
@@ -29,12 +28,20 @@ public class Questions_Chapter02 : MonoBehaviour {
 				new Choice_Question ("Im Wasserkreislauf geht Wasser verloren, weil es seinen Zustand ändert.", falsch, new string[]{ wahr }, 1),
 				new Order_Question ("Ordne die Schritte der Entstehung von Regen in richtiger Reihenfolge an.", new string[] {
 					"Die Sonne erwärmt das Wasser.",
-					"Einige Moleküle sind schneller, sodass sie die Anziehungskraft anderer Wassermoleküle überwinden.",
+					"Schnelle Wasserteilchen entkommen dem Wasser.",
 					"Die Wasserteilchen steigen mit der warmen Luft nach oben.",
 					"Es enstehen Wolken.",
 					"Die Tröpfchen in den Wolken werden schwerer.",
 					"Es entsteht Regen."
 				}, 6)
-			});
+			};
+
+		quizHandler.setQuestions (questions);
+
+		int sum = 0;
+		foreach (Question question in questions) {
+			sum += question.getPoints ();
+		}
+		NavigatorData.maxPointsQuiz [2] = sum;
 	}
 }

@@ -23,7 +23,7 @@ public class UIHandler : MonoBehaviour {
 
 	private float volume;
 
-	void Start () {
+	void Awake () {
 		helper.currentHelp = "Sieh dich in der Szene um. Kannst du noch etwas finden, auf das du noch nicht geklickt hast?";
 	}
 

@@ -6,17 +6,62 @@ public class Interactable_Kapitel : MonoBehaviour {
 
 	public GameHandler GH;
 
-	public string chapter;
+	public int chapter;
+
+	public SpriteRenderer emptyStars;
+
+	public SpriteRenderer fullStars;
+
+	bool enabled;
+
+	float pointPercentageAchieved = 0.0F;
+
+	void Start() {
+		if (NavigatorData.unlockedScenes[chapter]) {
+			GetComponent<SpriteRenderer> ().color = Color.white;
+			enabled = true;
+		} else {
+			GetComponent<SpriteRenderer> ().color = Color.gray;
+			enabled = false;
+		}
+		if (NavigatorData.chapterStarted[chapter]) {
+			float maxPoints = NavigatorData.maxPointsGame [chapter];
+			maxPoints += NavigatorData.maxPointsQuiz [chapter];
+
+			float achievedPoints = NavigatorData.achievedPointsGame [chapter];
+			achievedPoints += NavigatorData.achievedPointsQuiz [chapter];
+
+			pointPercentageAchieved = achievedPoints / maxPoints;
+		}
+		updateStars ();
+	}
+
+	public void updateStars() {
+		if (enabled) {
+			Debug.Log (pointPercentageAchieved);
+			emptyStars.gameObject.SetActive (true);
+
+			float difference = emptyStars.size.x - emptyStars.size.x * pointPercentageAchieved;
+
+			fullStars.size = new Vector2 (emptyStars.size.x * pointPercentageAchieved, fullStars.size.y);
+			fullStars.transform.position = new Vector3 (emptyStars.transform.position.x - difference / 2, emptyStars.transform.position.y, emptyStars.transform.position.z);
+		} else {
+			emptyStars.gameObject.SetActive (false);
+		}
+	}
 
 	void OnMouseDown () {
-		GH.chapter (chapter);
+		if (enabled) {
+			NavigatorData.chapterStarted[chapter] = true;
+			GH.chapter (chapter);
+		}
 	}
 
 	void OnMouseEnter () {
-		GetComponent<SpriteOutline> ().UpdateOutline (true);
+		if (enabled) GetComponent<SpriteOutline> ().UpdateOutline (true);
 	}
 
 	void OnMouseExit () {
-		GetComponent<SpriteOutline> ().UpdateOutline (false);
+		if (enabled) GetComponent<SpriteOutline> ().UpdateOutline (false);
 	}
 }

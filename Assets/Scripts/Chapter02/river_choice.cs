@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class river_choice : MonoBehaviour {
 
-	public chapter01_handler handler;
+	public chapter02_handler handler;
 
 	public Helper helper;
 

@@ -10,7 +10,7 @@ public class Questions_Chapter01 : MonoBehaviour {
 	void Start () {
 		string wahr = "Wahr";
 		string falsch = "Falsch";
-		quizHandler.setQuestions (new List<Question>() {
+		List<Question> questions = new List<Question>() {
 			new Image_Order_Question("Test", new string[]{"1", "2", "3", "4", "5", "6"}, 2),
 			new Choice_Question ("Welche Schicht ist undurchlässig?", "Lehm", new string[]{"Humus", "Kies", "Sand"}, 2),
 			new Choice_Question ("Das Schmutzwasser wird sauberer, wenn es im Boden versickert.", wahr, new string[]{falsch}, 1),
@@ -24,6 +24,14 @@ public class Questions_Chapter01 : MonoBehaviour {
 				"Das Wasser wird in den Hochbehälter gepumpt.",
 				"Das Wasser befindet sich in der Fallleitung.",
 				"Wir haben im Wasserhahn sauberes Wasser."}, 5)
-		});
+		};
+
+		quizHandler.setQuestions (questions);
+
+		int sum = 0;
+		foreach (Question question in questions) {
+			sum += question.getPoints ();
+		}
+		NavigatorData.maxPointsQuiz [1] = sum;
 	}
 }

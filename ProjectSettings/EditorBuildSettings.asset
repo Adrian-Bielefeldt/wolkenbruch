@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Navigator.unity
-    guid: a6a50cafe3d8a8a4aa3d9601b536f50d
+    path: Assets/Scenes/finalScenes/Navigator.unity
+    guid: dcd32a2df934049de98d19f5b48f2504
   - enabled: 1
-    path: Assets/Scenes/Chapter01.unity
-    guid: 4f78448206cf14edc894eff44daabd3c
+    path: Assets/Scenes/finalScenes/Chapter01.unity
+    guid: 7a9d036c4864541fcbf35685a8d5a080
   - enabled: 1
-    path: Assets/Scenes/Chapter02.unity
-    guid: 31b74db49c2244c4badeef7712717061
+    path: Assets/Scenes/finalScenes/Chapter02.unity
+    guid: cc8e75f5e71c34249841b60f59d95d0a
   - enabled: 1
-    path: Assets/Scenes/Chapter03.unity
-    guid: 7263f4b0ea3be4e398233efaede9b8f2
+    path: Assets/Scenes/finalScenes/Chapter03.unity
+    guid: 95a06f16674bb4d17931387d6b216c21
   - enabled: 1
-    path: Assets/Scenes/Chapter04.unity
-    guid: a7c3b40895d034b18a8119b13f905d40
+    path: Assets/Scenes/finalScenes/Chapter04.unity
+    guid: 92b20e21d636944799cc59049511b190

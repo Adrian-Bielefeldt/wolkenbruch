@@ -22,6 +22,10 @@ public class Quiz_Handler : MonoBehaviour {
 
 	public GameObject furtherButton;
 
+	public int chapter;
+
+	public GameHandler GH;
+
 	List<Question> questions;
 
 	int pointsAchieved = 0;
@@ -85,8 +89,15 @@ public class Quiz_Handler : MonoBehaviour {
 			if (nextPosition < questions.Count) {
 				setActiveQuestion (questions [nextPosition]);
 			} else {
-				Debug.Log ("Quiz beendet.");
 				toggleShow ();
+				NavigatorData.achievedPointsQuiz [chapter] = pointsAchieved;
+				if (NavigatorData.unlockedScenes.ContainsKey (chapter)) {
+					NavigatorData.unlockedScenes [chapter + 1] = true;
+					Debug.Log ("switching");
+					GH.chapter (0);
+				} else {
+					Debug.Log ("Spiel beendet!");
+				}
 			}
 		}
 		asking = !asking;

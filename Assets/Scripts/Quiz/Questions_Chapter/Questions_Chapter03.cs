@@ -11,8 +11,7 @@ public class Questions_Chapter03 : MonoBehaviour {
 		string wahr = "Wahr";
 		string falsch = "Falsch";
 		string frageVerdunstung = "Wasser verdunstet am schnellsten, wenn ...";
-		quizHandler.setQuestions (
-			new List<Question> () {
+		List<Question> questions = new List<Question> () {
 				new Choice_Question ("Zu wie viel Prozent besteht ein Mensch aus Wasser?", "69%", new string[]{ "90%", "23%", "26%" }, 3),
 				new Choice_Question ("Wie viel Wasser verbraucht ein durchschnittlicher Deutscher pro Tag?", "120 bis 150 l", new string[] {"weniger als 100 l", "mehr als 200 l", "150 bis 200 l"}, 3),
 				new Choice_Question ("Welcher Teil der Erdoberfläche ist von Wasser bedeckt?", "71%", new string[] {"78%", "66%", "89%"}, 3),
@@ -29,6 +28,14 @@ public class Questions_Chapter03 : MonoBehaviour {
 				new Choice_Question (frageVerdunstung, "die Luftfeuchtigkeit niedrig ist.", new string[]{"die Luftfeuchtigkeit hoch ist."}, 1),
 				new Choice_Question (frageVerdunstung, "die Windgeschwindigkeit hoch ist.", new string[]{"die Windgeschwindigkeit niedrig ist."}, 1),
 				new Image_Order_Question("Ordne die Wörter der Grafik zu.", new string[]{"Schmelzen", "Gefrieren", "Verdampfen", "Kondensieren", "Sublimieren", "Resublimieren"}, 6)
-			}); 
+		};
+
+		quizHandler.setQuestions (questions);
+
+		int sum = 0;
+		foreach (Question question in questions) {
+			sum += question.getPoints ();
+		}
+		NavigatorData.maxPointsQuiz [3] = sum;
 	}
 }

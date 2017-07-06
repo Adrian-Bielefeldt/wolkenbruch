@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class chapter01_handler : MonoBehaviour , INotifiableHandler {
+public class chapter02_handler : MonoBehaviour , INotifiableHandler {
 
 	public UIHandler UI;
 
@@ -79,5 +79,7 @@ public class chapter01_handler : MonoBehaviour , INotifiableHandler {
 
 		}
 		UI.displayQuizButton (true);
+
+		NavigatorData.achievedPointsGame [2] = correct;
 	}
 }
