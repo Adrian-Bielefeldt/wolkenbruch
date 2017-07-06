@@ -33,6 +33,9 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 	public void OnEndDrag(PointerEventData eventData) {
 		itemBeingDragged = null;
 		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		if (transform.parent == canvas.transform) {
+			transform.SetParent (startParent);
+		}
 		if (transform.parent == startParent) {
 			transform.position = startPosition;
 		}

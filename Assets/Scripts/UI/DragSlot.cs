@@ -17,6 +17,7 @@ public class DragSlot : MonoBehaviour, IDropHandler {
 		if (!item) {
 			DragHandler.itemBeingDragged.transform.SetParent (transform);
 			DragHandler.itemBeingDragged.transform.localPosition = Vector3.one;
+			DragHandler.itemBeingDragged.transform.localScale = Vector3.one;
 		}
 	}
 }
