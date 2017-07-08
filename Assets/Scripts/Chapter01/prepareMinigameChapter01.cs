@@ -17,19 +17,17 @@ public class prepareMinigameChapter01 : MonoBehaviour, INotifiableHandler
     public GameObject helpBubble;
     public GameObject helper;
 
-    private bool[] checkIfAllInformationObjectAlreadyRead = new bool[6];
-
     void Start()
     {
         minigameScene.SetActive(false);
 
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(2));
+        StartCoroutine(LastCall(10));
         helper.transform.localScale = new Vector2(3, 3);
         helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-150, -100);
-        text.text = "Lorem Ipsum";
+        helpBubble.transform.localPosition = new Vector2(-150, -250);
+        text.text = "Wo sind wir den hier gelandet? Vielleicht sollten wir uns die Gegend mal näher ansehen.";
         StopCoroutine("LastCall");
         
         Interactable_Information[] list = informationScene.GetComponentsInChildren<Interactable_Information>();
