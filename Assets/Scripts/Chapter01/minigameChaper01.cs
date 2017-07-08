@@ -15,6 +15,7 @@ public class minigameChaper01 : MonoBehaviour {
     public GameObject charakter;
     public GameObject dirtyCharacter;
     public GameObject healthyCharacter;
+    public UIHandler UI;
 
     private bool erde = false;
     private bool humus = false;
@@ -24,15 +25,15 @@ public class minigameChaper01 : MonoBehaviour {
     // Use this for initialization
     void Start () {
         healthyCharacter.SetActive(false);
+        UI.displayMinigameButton(false);
 
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(10));
-        Debug.Log("test");
+        StartCoroutine(LastCall(15));
         helper.transform.localScale = new Vector2(4, 4);
         helper.transform.localPosition = new Vector2(0, -200);
         helpBubble.transform.localPosition = new Vector2(-200, -200);
-        text.text = "Der Hauptcharakter muss ins Grundwasser gelangen um seine Freunde zu finden. Hilf ihm indem du die richtigen Schichten auswählst. ACHTUNG in einigen Schichten bleibt er stecken.";
+        text.text = "Mit den Informationen die wir erhalten haben müssten wir das Rätsel doch lösen können. Durch welche Erdschichten müssen wir durchsickern um in das Grundwasser zu gelangen?";
         StopCoroutine("LastCall");
     }
 
@@ -85,7 +86,7 @@ public class minigameChaper01 : MonoBehaviour {
                 kiesSolution.SetActive(true);
             }
         }
-        else if (button.name == "sand")
+        else if (button.name == "lehm")
         {
             if (sand == true)
             {
@@ -97,13 +98,23 @@ public class minigameChaper01 : MonoBehaviour {
             }
             else
             {
-                changeLocationCharakter(1.7f);
+                changeLocationCharakter(0.7f);
                 StartCoroutine(LastCall(10));
                 StopCoroutine("LastCall");
                 dirtyCharacter.SetActive(false);
                 healthyCharacter.SetActive(true);
                 sand = true;
                 sandSolution.SetActive(true);
+                UI.displayQuizButton(true);
+
+                Text text = message.GetComponent<Text>();
+                helpBubble.SetActive(true);
+                StartCoroutine(LastCall(20));
+                helper.transform.localScale = new Vector2(4, 4);
+                helper.transform.localPosition = new Vector2(0, -200);
+                helpBubble.transform.localPosition = new Vector2(-200, -200);
+                text.text = "Glückwunsch du hast die Aufgabe erfolgreich gelöst. Zeige im Quiz was du gelernt hast und sieh dir an was im Fluss so alles passieren kann.";
+                StopCoroutine("LastCall");
             }
         }
         else

@@ -8,26 +8,25 @@ public class prepareMinigameChapter03 : MonoBehaviour, INotifiableHandler
     public UIHandler UI;
     public GameObject informationScene;
     public GameObject minigameScene;
-    public GameObject startMinigameButton;
     public GameObject message;
     public GameObject helpBubble;
     public GameObject helper;
 
-    private bool[] checkIfAllInformationObjectAlreadyRead = new bool[6];
-
     void Start()
     {
-        minigameScene.SetActive(false);
 
         Text text = message.GetComponent<Text>();
+        UI.displayMinigameButton(false);
+
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(2));
+        StartCoroutine(LastCall(8));
         helper.transform.localScale = new Vector2(3, 3);
         helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-150, -100);
-        text.text = "Lorem Ipsum";
+        helpBubble.transform.localPosition = new Vector2(-200, -300);
+        text.text = "Endlich sind wir im See angekommen. Schau dich auch hier um damit wir die letzte Etappe meistern können.";
         StopCoroutine("LastCall");
 
+        minigameScene.SetActive(false);
         Interactable_Information[] list = informationScene.GetComponentsInChildren<Interactable_Information>();
         foreach (Interactable_Information interactable in list)
         {
@@ -40,25 +39,17 @@ public class prepareMinigameChapter03 : MonoBehaviour, INotifiableHandler
         Interactable_Information[] list = informationScene.GetComponentsInChildren<Interactable_Information>();
         for (int i = 0; i < list.Length; i++)
         {
-            if (list[i].alreadyRead)
+            if (!list[i].alreadyRead)
             {
-                checkIfAllInformationObjectAlreadyRead[i] = true;
-                for (int j = 0; j < checkIfAllInformationObjectAlreadyRead.Length; j++)
-                {
-                    if (checkIfAllInformationObjectAlreadyRead[j] == true && checkIfAllInformationObjectAlreadyRead[j + 1] == true && checkIfAllInformationObjectAlreadyRead[j + 2] == true && checkIfAllInformationObjectAlreadyRead[j + 3] == true && checkIfAllInformationObjectAlreadyRead[j + 4] == true && checkIfAllInformationObjectAlreadyRead[j + 5] == true)
-                    {
-                        startMinigameButton.SetActive(true);
-                        return;
-                    }
-                }
+                return;
             }
         }
+        UI.displayMinigameButton(true);
     }
 
     public void startMinigame()
     {
         informationScene.SetActive(false);
-        startMinigameButton.SetActive(false);
         minigameScene.SetActive(true);
     }
 
