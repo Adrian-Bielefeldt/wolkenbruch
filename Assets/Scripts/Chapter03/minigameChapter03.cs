@@ -19,6 +19,7 @@ public class minigameChapter03 : MonoBehaviour
     private int NumberOfDeactivatedSunshine;
     private bool stopChangeSunshine = false;
     private bool ifFogIsInPosition = false;
+	private bool showTextOneTime = false;
 
     // Use this for initialization
     void Start()
@@ -80,8 +81,9 @@ public class minigameChapter03 : MonoBehaviour
         {
             charakter.transform.position += RichtunngCharakter * 0.5f * Time.deltaTime;
             charakter.transform.localScale = new Vector2(charakter.transform.localScale.x * 0.99f, charakter.transform.localScale.y * 0.99f);
-        }else if(charakter.transform.position.y >= 02)
+		}else if(charakter.transform.position.y >= 02 && showTextOneTime == false)
         {
+			wind.SetActive (false);
             UI.displayQuizButton(true);
             Text text = message.GetComponent<Text>();
             helpBubble.SetActive(true);
@@ -91,6 +93,7 @@ public class minigameChapter03 : MonoBehaviour
             helpBubble.transform.localPosition = new Vector2(-200, -200);
             text.text = "Juhu du hast das Rätsel gelöst. Schließe nun das Quiz ab um das letzte Kapitel zu starten";
             StopCoroutine("LastCall");
+			showTextOneTime = true;
         }
     }
 

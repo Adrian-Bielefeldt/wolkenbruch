@@ -2413,7 +2413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0.91764706, g: 0.7254902, b: 0.08627451, a: 1}
-  outlineSize: 8
+  outlineSize: 6
 --- !u!212 &1596953955
 SpriteRenderer:
   m_ObjectHideFlags: 0
