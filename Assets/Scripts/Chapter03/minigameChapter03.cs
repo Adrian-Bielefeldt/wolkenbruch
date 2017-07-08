@@ -32,6 +32,7 @@ public class minigameChapter03 : MonoBehaviour
         helper.transform.localPosition = new Vector2(0, -200);
         helpBubble.transform.localPosition = new Vector2(-200, -200);
         text.text = "Wie können wir Verdunsten? Ich habe gehört die Sonne dreht sich gerne nach links.";
+		helper.GetComponent<Helper> ().currentHelp = "Wir sollten verdunsten, indem wir die Sonne aufdrehen. Und wenn zuviel Wasserdampf vor uns aufsteigt, pusten wir ihn einfach mit den Wolken weg.";
         StopCoroutine("LastCall");        
         
         wind.SetActive(false);
@@ -85,6 +86,7 @@ public class minigameChapter03 : MonoBehaviour
         {
 			wind.SetActive (false);
             UI.displayQuizButton(true);
+			NavigatorData.achievedPointsGame [3] = 2;
             Text text = message.GetComponent<Text>();
             helpBubble.SetActive(true);
             StartCoroutine(LastCall(10));

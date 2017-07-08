@@ -91,12 +91,11 @@ public class Quiz_Handler : MonoBehaviour {
 			} else {
 				toggleShow ();
 				NavigatorData.achievedPointsQuiz [chapter] = pointsAchieved;
-				if (NavigatorData.unlockedScenes.ContainsKey (chapter)) {
+				if (NavigatorData.unlockedScenes.ContainsKey (chapter + 1)) {
 					NavigatorData.unlockedScenes [chapter + 1] = true;
-					Debug.Log ("switching");
 					GH.chapter (0);
 				} else {
-					Debug.Log ("Spiel beendet!");
+					GH.chapter (6);
 				}
 			}
 		}

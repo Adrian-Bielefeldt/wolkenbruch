@@ -14,7 +14,7 @@ public class Interactable_Kapitel : MonoBehaviour {
 
 	bool enabled;
 
-	float pointPercentageAchieved = 0.0F;
+	float pointPercentageAchieved;
 
 	void Start() {
 		if (NavigatorData.unlockedScenes[chapter]) {
@@ -24,7 +24,7 @@ public class Interactable_Kapitel : MonoBehaviour {
 			GetComponent<SpriteRenderer> ().color = Color.gray;
 			enabled = false;
 		}
-		if (NavigatorData.chapterStarted[chapter]) {
+		if (NavigatorData.chapterStarted [chapter]) {
 			float maxPoints = NavigatorData.maxPointsGame [chapter];
 			maxPoints += NavigatorData.maxPointsQuiz [chapter];
 
@@ -32,13 +32,14 @@ public class Interactable_Kapitel : MonoBehaviour {
 			achievedPoints += NavigatorData.achievedPointsQuiz [chapter];
 
 			pointPercentageAchieved = achievedPoints / maxPoints;
+		} else {
+			pointPercentageAchieved = 0f;
 		}
 		updateStars ();
 	}
 
 	public void updateStars() {
 		if (enabled) {
-			Debug.Log (pointPercentageAchieved);
 			emptyStars.gameObject.SetActive (true);
 
 			float difference = emptyStars.size.x - emptyStars.size.x * pointPercentageAchieved;

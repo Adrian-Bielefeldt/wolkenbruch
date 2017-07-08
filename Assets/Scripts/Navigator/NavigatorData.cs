@@ -21,9 +21,9 @@ public static class NavigatorData {
 	};
 
 	public static Dictionary<int, int> maxPointsGame = new Dictionary<int, int>() {
-		{1, 0},
+		{1, 4},
 		{2, 4},
-		{3, 0},
+		{3, 2},
 		{4, 4}
 	};
 

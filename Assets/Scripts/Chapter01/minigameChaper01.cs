@@ -22,6 +22,8 @@ public class minigameChaper01 : MonoBehaviour {
     private bool kies = false;
     private bool sand = false;
 
+	int pointsMinigameChapter01 = 4;
+
     // Use this for initialization
     void Start () {
         healthyCharacter.SetActive(false);
@@ -60,6 +62,7 @@ public class minigameChaper01 : MonoBehaviour {
             }
             else if (erde == false)
             {
+				getMinusPoints ();
                 showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
@@ -77,6 +80,7 @@ public class minigameChaper01 : MonoBehaviour {
             }
             else if (humus == false)
             {
+				getMinusPoints ();
                 showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
@@ -94,6 +98,7 @@ public class minigameChaper01 : MonoBehaviour {
             }
             else if (kies == false)
             {
+				getMinusPoints ();
                 showAndHideBubbleWithText("Anscheinend erscheint vorher eine andere Schicht");
             }
             else
@@ -107,6 +112,8 @@ public class minigameChaper01 : MonoBehaviour {
                 sandSolution.SetActive(true);
                 UI.displayQuizButton(true);
 
+				NavigatorData.achievedPointsGame [1] = pointsMinigameChapter01;
+
                 Text text = message.GetComponent<Text>();
                 helpBubble.SetActive(true);
                 StartCoroutine(LastCall(20));
@@ -119,6 +126,7 @@ public class minigameChaper01 : MonoBehaviour {
         }
         else
         {
+			getMinusPoints ();
             showAndHideBubbleWithText("Es sieht nicht so aus das deine Figuren hier durch können");
         } 
     }
@@ -136,6 +144,18 @@ public class minigameChaper01 : MonoBehaviour {
         text.text = showedText;
         StopCoroutine("LastCall");
     }
+
+	void getMinusPoints()
+	{
+		if(pointsMinigameChapter01 > 0)
+		{
+			pointsMinigameChapter01--;
+		}
+		else
+		{
+			pointsMinigameChapter01 = 0;
+		}
+	}
 
     IEnumerator LastCall(int time)
     {

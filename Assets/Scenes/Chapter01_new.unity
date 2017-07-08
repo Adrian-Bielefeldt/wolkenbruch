@@ -3110,7 +3110,6 @@ MonoBehaviour:
   humusSolution: {fileID: 1820753268}
   kiesSolution: {fileID: 1256472016}
   lehmSolution: {fileID: 739393627}
-  sandSolution: {fileID: 0}
   message: {fileID: 579424731}
   helpBubble: {fileID: 1981483714}
   helper: {fileID: 887825811}
@@ -3589,6 +3588,28 @@ Prefab:
     - target: {fileID: 1805612244336996, guid: 5576d5c71be5346a8a61ef49ad5a34df, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: slotPanelPrefab
+      value: 
+      objectReference: {fileID: 1451110134823002, guid: f497b122437b144b3bb6e1e318c75636,
+        type: 2}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: GH
+      value: 
+      objectReference: {fileID: 887467589}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: circlePrefab
+      value: 
+      objectReference: {fileID: 1513199514371886, guid: da089e59be2884e42b6c4de751d28593,
+        type: 2}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: chapter
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5576d5c71be5346a8a61ef49ad5a34df, type: 2}

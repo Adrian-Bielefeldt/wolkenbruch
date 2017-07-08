@@ -12,7 +12,6 @@ public class prepareMinigameChapter01 : MonoBehaviour, INotifiableHandler
     public GameObject humusSolution;
     public GameObject kiesSolution;
     public GameObject lehmSolution;
-    public GameObject sandSolution;
     public GameObject message;
     public GameObject helpBubble;
     public GameObject helper;
@@ -59,7 +58,6 @@ public class prepareMinigameChapter01 : MonoBehaviour, INotifiableHandler
         humusSolution.SetActive(false);
         kiesSolution.SetActive(false);
         lehmSolution.SetActive(false);
-        sandSolution.SetActive(false);
 }
 
     IEnumerator LastCall(int time)

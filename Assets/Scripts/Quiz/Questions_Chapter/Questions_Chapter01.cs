@@ -11,7 +11,6 @@ public class Questions_Chapter01 : MonoBehaviour {
 		string wahr = "Wahr";
 		string falsch = "Falsch";
 		List<Question> questions = new List<Question>() {
-			new Image_Order_Question("Test", new string[]{"1", "2", "3", "4", "5", "6"}, 2),
 			new Choice_Question ("Welche Schicht ist undurchlässig?", "Lehm", new string[]{"Humus", "Kies", "Sand"}, 2),
 			new Choice_Question ("Das Schmutzwasser wird sauberer, wenn es im Boden versickert.", wahr, new string[]{falsch}, 1),
 			new Choice_Question ("Wasser kommt in drei verschiedenen Aggregatzuständen vor.", wahr, new string[]{falsch}, 1),

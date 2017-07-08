@@ -1706,6 +1706,22 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: 124
       objectReference: {fileID: 0}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: circlePrefab
+      value: 
+      objectReference: {fileID: 1513199514371886, guid: da089e59be2884e42b6c4de751d28593,
+        type: 2}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: chapter
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114727666036843684, guid: 5576d5c71be5346a8a61ef49ad5a34df,
+        type: 2}
+      propertyPath: GH
+      value: 
+      objectReference: {fileID: 481224105}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5576d5c71be5346a8a61ef49ad5a34df, type: 2}
   m_IsPrefabParent: 0
