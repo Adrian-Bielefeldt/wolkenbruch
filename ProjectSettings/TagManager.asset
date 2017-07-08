@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Particle
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Pause_UI_Background
   - Pause_UI
   - InformationItems
-  - 
+  - Player
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 60283249
+    locked: 0
+  - name: player
+    uniqueID: 3940129811
     locked: 0
   - name: PauseUI
     uniqueID: 4285042699

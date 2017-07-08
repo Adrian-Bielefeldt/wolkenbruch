@@ -24,7 +24,7 @@ public static class NavigatorData {
 		{1, 0},
 		{2, 4},
 		{3, 0},
-		{4, 0}
+		{4, 4}
 	};
 
 	public static Dictionary<int, int> achievedPointsGame = new Dictionary<int, int>() {
