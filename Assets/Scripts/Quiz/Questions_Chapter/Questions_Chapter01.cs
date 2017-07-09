@@ -18,7 +18,7 @@ public class Questions_Chapter01 : MonoBehaviour {
 			new Choice_Question ("Das versickerte Wasser wird zu einer Quelle.", wahr, new string[]{falsch}, 1),
 			new Choice_Question ("Wir trinken dasselbe Wasser wie unsere Vorfahren.", wahr, new string[]{falsch}, 1),
 			new Order_Question ("Ordne in richtiger Reihenfole, wie das Wasser nach Hause kommt.", new string[]{
-				"Wasser wird aus Quellen, Brunnen, Flüssen oder Seen geschöpft (Pumpwerk).",
+				"Wasser wird aus Brunnen geschöpft (Pumpwerk).",
 				"Das Wasser wird gereinigt.",
 				"Das Wasser wird in den Hochbehälter gepumpt.",
 				"Das Wasser befindet sich in der Fallleitung.",

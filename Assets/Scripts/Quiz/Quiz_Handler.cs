@@ -93,7 +93,7 @@ public class Quiz_Handler : MonoBehaviour {
 				NavigatorData.achievedPointsQuiz [chapter] = pointsAchieved;
 				if (NavigatorData.unlockedScenes.ContainsKey (chapter + 1)) {
 					NavigatorData.unlockedScenes [chapter + 1] = true;
-					GH.chapter (0);
+					GH.chapter (5);
 				} else {
 					GH.chapter (6);
 				}

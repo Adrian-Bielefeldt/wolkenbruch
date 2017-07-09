@@ -9,8 +9,4 @@ public class SoundHandler : MonoBehaviour {
 	public void SetGeneralVolume(float val) {
 		audioGeneral.setVolume (val);
 	}
-
-	public void SetMusicVolume(float val) {
-		Debug.Log ("Setting music volume to: " + val);
-	}
 }

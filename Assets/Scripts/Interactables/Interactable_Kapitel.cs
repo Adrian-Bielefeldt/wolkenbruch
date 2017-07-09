@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Interactable_Kapitel : MonoBehaviour {
 
@@ -52,6 +53,9 @@ public class Interactable_Kapitel : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
+		if (EventSystem.current.IsPointerOverGameObject ()) {
+			return;
+		}
 		if (enabled) {
 			NavigatorData.chapterStarted[chapter] = true;
 			GH.chapter (chapter);
@@ -59,6 +63,9 @@ public class Interactable_Kapitel : MonoBehaviour {
 	}
 
 	void OnMouseEnter () {
+		if (EventSystem.current.IsPointerOverGameObject ()) {
+			return;
+		}
 		if (enabled) GetComponent<SpriteOutline> ().UpdateOutline (true);
 	}
 

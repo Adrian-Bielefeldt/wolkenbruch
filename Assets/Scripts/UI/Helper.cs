@@ -8,6 +8,8 @@ public class Helper : MonoBehaviour {
 	public GameObject primaryPanel;
 	public GameObject HelpBubble;
 
+	public AudioSource helpSound;
+
 	public string currentHelp;
 
 	// Use this for initialization
@@ -20,6 +22,7 @@ public class Helper : MonoBehaviour {
 	}
 
 	public void help (string help) {
+		helpSound.PlayOneShot (helpSound.clip, 1f);
 		HelpBubble.GetComponentInChildren<Text> ().text = help;
 		HelpBubble.SetActive (true);
 	}

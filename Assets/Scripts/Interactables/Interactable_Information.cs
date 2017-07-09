@@ -22,6 +22,7 @@ public class Interactable_Information : MonoBehaviour {
 		alreadyRead = true;
 		handler.notifyChange ();
 		UI.DisplayInformation (title, pages);
+		GetComponent<SpriteOutline> ().UpdateOutline (false);
 	}
 
 	void OnMouseEnter () {

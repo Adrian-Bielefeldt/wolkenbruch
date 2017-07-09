@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class NavigatorData {
 
-	public static int test = 0;
+	public static float volume = 0.5f;
 
 	public static Dictionary<int, bool> unlockedScenes = new Dictionary<int, bool>(){
 		{1, true},
@@ -13,7 +13,7 @@ public static class NavigatorData {
 	};
 
 	public static Dictionary<int, string> chapterLocations = new Dictionary<int, string>(){
-		{0, "finalScenes/Navigator"},
+		{5, "finalScenes/Navigator"},
 		{1, "finalScenes/Chapter01"},
 		{2, "finalScenes/Chapter02"},
 		{3, "finalScenes/Chapter03"},

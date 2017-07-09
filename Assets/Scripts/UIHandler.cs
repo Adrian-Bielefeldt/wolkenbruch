@@ -8,12 +8,13 @@ public class UIHandler : MonoBehaviour {
 	public SoundHandler SH;
 	public GameObject pause_menu;
 	public Button generalVolumeButton;
-	public Button musicVolumeButton;
 	public InformationPanel informationPanel;
 	public Helper helper;
 
 	public Button minigameButton;
 	public Button quizButton;
+
+	public Slider volumeSlider;
 
 	private string mutedString = "Laut schalten";
 	private string unmutedString = "Stummschalten";
@@ -21,10 +22,10 @@ public class UIHandler : MonoBehaviour {
 	private bool mute;
 	private bool musicMute;
 
-	private float volume;
-
 	void Awake () {
 		helper.currentHelp = "Sieh dich in der Szene um. Kannst du noch etwas finden, auf das du noch nicht geklickt hast?";
+		SH.SetGeneralVolume (NavigatorData.volume);
+		volumeSlider.value = NavigatorData.volume;
 	}
 
 	// Update is called once per frame
@@ -53,7 +54,7 @@ public class UIHandler : MonoBehaviour {
 
 	public void MainSliderUpdate(float val) {
 		Debug.Log ("Volume now: " + val);
-		volume = val;
+		NavigatorData.volume = val;
 		if (!mute) {
 			SH.SetGeneralVolume(val);
 		}
@@ -63,23 +64,11 @@ public class UIHandler : MonoBehaviour {
 		if (mute) {
 			mute = false;
 			generalVolumeButton.GetComponentInChildren<Text> ().text = unmutedString;
-			SH.SetGeneralVolume (volume);
+			SH.SetGeneralVolume (NavigatorData.volume);
 		} else {
 			mute = true;
 			generalVolumeButton.GetComponentInChildren<Text> ().text = mutedString;
 			SH.SetGeneralVolume (0f);
-		}
-	}
-
-	public void ToggleMusic() {
-		if (musicMute) {
-			musicMute = false;
-			musicVolumeButton.GetComponentInChildren<Text> ().text = unmutedString;
-			SH.SetMusicVolume (volume);
-		} else {
-			musicMute = true;
-			musicVolumeButton.GetComponentInChildren<Text> ().text = mutedString;
-			SH.SetMusicVolume (0f);
 		}
 	}
 

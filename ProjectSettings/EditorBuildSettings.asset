@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/finalScenes/Navigator.unity
-    guid: dcd32a2df934049de98d19f5b48f2504
+    path: Assets/Scenes/finalScenes/startScene.unity
+    guid: b6bda212228f14e12a2749019d7b3e9f
   - enabled: 1
     path: Assets/Scenes/finalScenes/Chapter01.unity
     guid: 7a9d036c4864541fcbf35685a8d5a080
@@ -21,8 +21,8 @@ EditorBuildSettings:
     path: Assets/Scenes/finalScenes/Chapter04.unity
     guid: 92b20e21d636944799cc59049511b190
   - enabled: 1
-    path: Assets/Scenes/finalScenes/startScene.unity
-    guid: b6bda212228f14e12a2749019d7b3e9f
+    path: Assets/Scenes/finalScenes/Navigator.unity
+    guid: dcd32a2df934049de98d19f5b48f2504
   - enabled: 1
     path: Assets/Scenes/finalScenes/endScene.unity
     guid: 0857c0271d8244787a069c488910102c
