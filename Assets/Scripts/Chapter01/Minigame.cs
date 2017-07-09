@@ -31,13 +31,7 @@ public class Minigame : MonoBehaviour {
     {
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall());
-        helper.transform.localScale = new Vector2(4, 4);
-        helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-200, -200);
         text.text = "Der Hauptcharakter muss ins Grundwasser gelangen um seine Freunde zu finden. Hilf ihm indem du die richtigen Schichten auswählst. ACHTUNG in einigen Schichten bleibt er stecken.";
-        LastCall();
-        StopCoroutine(LastCall());
     }
     public void StartingKonfiguration()
     {
@@ -140,18 +134,6 @@ public class Minigame : MonoBehaviour {
     {
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall());
         text.text = showedText;
-        LastCall();
-        StopCoroutine(LastCall());
-    }
-
-    IEnumerator LastCall()
-    {
-        yield return new WaitForSeconds(5);
-        helper.transform.localPosition = new Vector2(280,0);
-        helpBubble.transform.localPosition = new Vector2(114,0);
-        helper.transform.localScale = new Vector2(1,1);
-        helpBubble.SetActive(false);
     }
 }

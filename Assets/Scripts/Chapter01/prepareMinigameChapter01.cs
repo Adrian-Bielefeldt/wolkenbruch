@@ -22,12 +22,7 @@ public class prepareMinigameChapter01 : MonoBehaviour, INotifiableHandler
 
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(10));
-        helper.transform.localScale = new Vector2(3, 3);
-        helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-150, -250);
         text.text = "Wo sind wir den hier gelandet? Vielleicht sollten wir uns die Gegend mal näher ansehen.";
-        StopCoroutine("LastCall");
         
         Interactable_Information[] list = informationScene.GetComponentsInChildren<Interactable_Information>();
         foreach (Interactable_Information interactable in list)
@@ -59,13 +54,4 @@ public class prepareMinigameChapter01 : MonoBehaviour, INotifiableHandler
         kiesSolution.SetActive(false);
         lehmSolution.SetActive(false);
 }
-
-    IEnumerator LastCall(int time)
-    {
-        yield return new WaitForSeconds(time);
-        helper.transform.localPosition = new Vector2(268,0);
-        helpBubble.transform.localPosition = new Vector2(0, 0);
-        helper.transform.localScale = new Vector2(1, 1);
-        helpBubble.SetActive(false);
-    }
 }

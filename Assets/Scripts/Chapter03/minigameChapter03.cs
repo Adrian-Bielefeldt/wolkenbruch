@@ -27,13 +27,8 @@ public class minigameChapter03 : MonoBehaviour
         UI.displayMinigameButton(false);
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(8));
-        helper.transform.localScale = new Vector2(3, 3);
-        helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-200, -200);
         text.text = "Wie können wir Verdunsten? Ich habe gehört die Sonne dreht sich gerne nach links.";
-		helper.GetComponent<Helper> ().currentHelp = "Wir sollten verdunsten, indem wir die Sonne aufdrehen. Und wenn zuviel Wasserdampf vor uns aufsteigt, pusten wir ihn einfach mit den Wolken weg.";
-        StopCoroutine("LastCall");        
+		helper.GetComponent<Helper> ().currentHelp = "Wir sollten verdunsten, indem wir die Sonne aufdrehen. Und wenn zuviel Wasserdampf vor uns aufsteigt, pusten wir ihn einfach mit den Wolken weg."; 
         
         wind.SetActive(false);
         fog1.SetActive(false);
@@ -89,22 +84,8 @@ public class minigameChapter03 : MonoBehaviour
 			NavigatorData.achievedPointsGame [3] = 2;
             Text text = message.GetComponent<Text>();
             helpBubble.SetActive(true);
-            StartCoroutine(LastCall(10));
-            helper.transform.localScale = new Vector2(4, 4);
-            helper.transform.localPosition = new Vector2(0, -200);
-            helpBubble.transform.localPosition = new Vector2(-200, -200);
             text.text = "Juhu du hast das Rätsel gelöst. Schließe nun das Quiz ab um das letzte Kapitel zu starten";
-            StopCoroutine("LastCall");
 			showTextOneTime = true;
         }
-    }
-
-    IEnumerator LastCall(int time)
-    {
-        yield return new WaitForSeconds(time);
-        helper.transform.localPosition = new Vector2(250, 0);
-        helpBubble.transform.localPosition = new Vector2(114, 0);
-        helper.transform.localScale = new Vector2(1, 1);
-        helpBubble.SetActive(false);
     }
 }

@@ -31,12 +31,7 @@ public class minigameChaper01 : MonoBehaviour {
 
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(15));
-        helper.transform.localScale = new Vector2(4, 4);
-        helper.transform.localPosition = new Vector2(0, -200);
-        helpBubble.transform.localPosition = new Vector2(-200, -200);
         text.text = "Mit den Informationen die wir erhalten haben müssten wir das Rätsel doch lösen können. Durch welche Erdschichten müssen wir durchsickern um in das Grundwasser zu gelangen?";
-        StopCoroutine("LastCall");
     }
 
     public void showAnswer(Button button)
@@ -104,8 +99,6 @@ public class minigameChaper01 : MonoBehaviour {
             else
             {
                 changeLocationCharakter(0.7f);
-                StartCoroutine(LastCall(10));
-                StopCoroutine("LastCall");
                 dirtyCharacter.SetActive(false);
                 healthyCharacter.SetActive(true);
                 sand = true;
@@ -116,12 +109,7 @@ public class minigameChaper01 : MonoBehaviour {
 
                 Text text = message.GetComponent<Text>();
                 helpBubble.SetActive(true);
-                StartCoroutine(LastCall(20));
-                helper.transform.localScale = new Vector2(4, 4);
-                helper.transform.localPosition = new Vector2(0, -200);
-                helpBubble.transform.localPosition = new Vector2(-200, -200);
                 text.text = "Glückwunsch du hast die Aufgabe erfolgreich gelöst. Zeige im Quiz was du gelernt hast und sieh dir an was im Fluss so alles passieren kann.";
-                StopCoroutine("LastCall");
             }
         }
         else
@@ -140,9 +128,7 @@ public class minigameChaper01 : MonoBehaviour {
     {
         Text text = message.GetComponent<Text>();
         helpBubble.SetActive(true);
-        StartCoroutine(LastCall(5));
         text.text = showedText;
-        StopCoroutine("LastCall");
     }
 
 	void getMinusPoints()
@@ -156,13 +142,4 @@ public class minigameChaper01 : MonoBehaviour {
 			pointsMinigameChapter01 = 0;
 		}
 	}
-
-    IEnumerator LastCall(int time)
-    {
-        yield return new WaitForSeconds(time);
-        helper.transform.localPosition = new Vector2(250, 0); 
-        helpBubble.transform.localPosition = new Vector2(114, 0);
-        helper.transform.localScale = new Vector2(1, 1);
-        helpBubble.SetActive(false);
-    }
 }
