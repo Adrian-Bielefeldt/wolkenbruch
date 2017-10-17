@@ -1,0 +1,29 @@
+Kapitelübersicht Gesamt: 
+	- Position: 0 0 0
+	- Width: 1280
+	- Height: 720
+
+Fluss Hover:
+	- Position: -127 -70 0
+	- Width: 704
+	- Height: 260
+
+Fluss:
+	- Position: -127 -70 0
+	- Width: 704
+	- Height: 260
+
+See Hover:
+	- Position: 380 -115 0
+	- Width: 522
+	- Height: 240
+
+Wolken Hover:
+	- Position:
+	- Width: 1232
+	- Height: 140
+
+Grundwasser Hover:
+	- Position:
+	- Width: 1280
+	- Height: 196

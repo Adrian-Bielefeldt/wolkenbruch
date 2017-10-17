@@ -1,0 +1,79 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 760 (ID=0x1187)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   22.21.13.8253
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.045 seconds
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Luccio\Desktop\Wolkenbruch\Test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3520x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.179246 ms
+The referenced script on this Behaviour (Game Object 'Cancel') is missing!
+ 
+(Filename:  Line: 1743)
+
+The referenced script on this Behaviour (Game Object 'Minigame') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.734495 ms
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 1079.
+Total: 0.992636 ms (FindLiveObjects: 0.049919 ms CreateObjectMapping: 0.040771 ms MarkObjects: 0.852549 ms  DeleteObjects: 0.048873 ms)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Choice_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Choice_Question.
+ 
+(Filename:  Line: 598)
+
+Order_Question must be instantiated using the ScriptableObject.CreateInstance method instead of new Order_Question.
+ 
+(Filename:  Line: 598)
+
+Quiz beendet.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Quiz beendet.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 3 worker threads for Enlighten.
+  Thread -> id: 21c8 -> priority: 1 
+  Thread -> id: 3540 -> priority: 1 
+  Thread -> id: 3324 -> priority: 1 
